@@ -27,6 +27,18 @@ SELECT * WHERE {
 } LIMIT 100
 ```
 
+Or slightly more interesting:
+```
+PREFIX dcterms: <http://purl.org/dc/terms/>
+
+SELECT * WHERE {
+  ?id dcterms:title   ?title .
+  ?id dcterms:subject ?subject .
+  ?id dcterms:date    ?date
+} LIMIT 100
+```
+
+
 Once you are done with your SPARQL repo, you can shut down the container and clear up the `db_dump` directory:
 Stop and remove:
 ```
