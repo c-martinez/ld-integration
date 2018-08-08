@@ -10,7 +10,7 @@ pip install -r requirements.txt
 Use `buildTtl.py` to read an elasticsearch index (example: `open-beelden-beeldengeluid`) from an elasticsearch host (example: `http://localhost:9200`) and export it to file (example: `rawdata/oai.ttl`) in turtle format. Run the following command:
 ```
 mkdir rawdata/
-python buildTtl.py open-beelden-beeldengeluid rawdata/oai.ttl --host http://localhost:9200
+python buildTtl.py open-beelden-beeldengeluid --ttl rawdata/oai.ttl --host http://localhost:9200
 ```
 
 Now we will use [tenforce/docker-virtuoso docker image](https://github.com/tenforce/docker-virtuoso) to import the produced ttl file. We need to convert turtle files to nquads for virtuoso to import them. Triples get imported into the specified graph (example: `https://www.clariah.nl/lod/`). Afterwards, virtuoso is started. Notice that a data directory (`data/`) is created to contain virtuoso specific data, and the data is loaded from the `toLoad` directory.
